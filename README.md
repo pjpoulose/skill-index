@@ -1,4 +1,4 @@
-<h1 align="center">skill-index</h1>
+﻿<h1 align="center">skill-index</h1>
 
 <p align="center">
   <img src="logo.png" alt="skill-index" width="280" />
@@ -74,6 +74,8 @@ A skill does not overwrite who the bot is. The bot's own rules still win.
 | [Always-on line](rules/skill-index.mdc) | The short rule the bot keeps. Unused skills stay out of the chat. |
 | [Starter skills](starters/file-index/index.md) | Three examples: release note, class deck check, pull request check. |
 | [Marketplaces](marketplaces.json) | Six places the plugin can look. You can add your own. |
+| [Library schema](schema.sql) | Creates the empty SQLite tables. |
+| [Library](library.sqlite) | Empty local library. Search does not write here. |
 
 ## What are skills
 
