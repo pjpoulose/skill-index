@@ -37,9 +37,9 @@ If the store is down, use the local thin cache: name, purpose, keywords, and neg
 
 The plugin database has one listing per skill. A listing is the thing you match: name, purpose, keywords, when not to use it, and the success check.
 
-If the same skill, or a similar one, shows up in another marketplace or folder, do not add a second listing. Index that place as another location on the listing already there. A location is a store plus a path or URL, a license, and when it was last checked.
+If the same skill shows up in another marketplace or folder, do not add a second listing. Index that place as another location on the listing already there. A location is a store plus a path or URL, a license, and when it was last checked.
 
-Similar means the same name, the same upstream skill, or the user says it is the same skill. Overlapping purpose is not enough. Two different listings that both match the turn still collide: load neither and name both.
+Same skill means it is tied to the same repo, or it is a fork of that repo. Same name is not enough. Overlapping purpose is not enough. Two different listings that both match the turn still collide: load neither and name both.
 
 When one listing matches, load one body from one location. Prefer a confirmed license, then a local copy. Do not load every location.
 

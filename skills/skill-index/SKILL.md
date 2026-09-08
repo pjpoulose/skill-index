@@ -19,21 +19,23 @@ The plugin database has one listing per skill. Match listings, not every copy.
 - do-not-use-when (hard veto)
 - success check (worked if… / fail if…)
 - where it may load (this chat, named rooms, never a group)
+- repo (the skill's source repo)
 
 A listing does not store the body.
 
 ## Locations
 
-Each listing has one or more locations. A location is where that skill was found.
+Each listing has one or more locations. A location is where that same skill was found.
 
 - store (files, Notion, a marketplace, a repo)
 - path or URL
+- repo, or the repo it was forked from
 - license, if known
 - last checked
 
-If the same skill, or a similar one, shows up somewhere else, add a location to the listing already there. Do not create a second listing.
+Add a location to an existing listing only if it is the same skill: tied to the same repo, or a fork of that repo. Same name is not enough. Do not create a second listing for another copy of that same skill.
 
-Similar means the same name, the same upstream skill, or the user says it is the same skill. Overlapping purpose is not enough to merge.
+Overlapping purpose is not a merge. A different repo that is not a fork of this one is a different listing, even if the name matches.
 
 Linked, not on the standing row:
 
