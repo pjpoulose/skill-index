@@ -1,0 +1,6 @@
+---
+description: Before a multi-step job, retrieve at most one skill from the skill index. Locks in the standing prompt always win.
+alwaysApply: true
+---
+
+Before a multi-step job, check the skill index. Match purpose and keywords, drop negatives and edge-case vetoes, load at most one body. If two skills still match, load neither. Score the skill's success line before calling the job done. Locks in the standing prompt always win over a retrieved skill. A closer keyword does not cancel a second match. If two skills still match after vetoes, load neither and name both. If the success line cannot be scored from this turn, the score is not a hit. If the index store is unreachable, use the local thin cache (name, purpose, keywords, negatives only). Do not guess a body.

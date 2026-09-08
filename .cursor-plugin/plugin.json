@@ -1,0 +1,8 @@
+{
+  "name": "skill-index",
+  "version": "0.1.0",
+  "description": "Thin skill index for agents. Standing prompt stays short. Full instructions, edge-case vetoes, and lessons load only after a real match. Imports Claude and Codex SKILL.md files into the same index.",
+  "author": "SathiaAI",
+  "license": "MIT",
+  "keywords": ["skills", "retrieval", "agent-skills", "claude", "codex"]
+}
