@@ -1,45 +1,48 @@
 # skill-index
 
-A skill library for Grok Bot.
+Your bot's instructions are full. Every extra job you paste in is charged on every message, even when that job is not the one you asked for.
 
-You do not have to know the skill name. Ask a bot what you want done. The plugin looks through the skill marketplaces you connected and shows you what fits. You add the ones you want. After that, your bots can use them.
+skill-index keeps the instructions short. A skill is picked up only when the words in the request match it. The bot stays light. You use fewer tokens.
 
 ![skill-index](logo.png)
 
+## The problem
+
+You can only add so much to a bot's instructions. After a while they are bloated with jobs that are not needed right now. That extra text burns tokens, and the bot gets slower to the point. It grabs a leftover instruction and does the wrong thing.
+
+Anthropic describes the same fix for Claude: keep only the skill's name in view, and load the full instructions when the task needs them. [Their write-up](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills).
+
 ## What you get
 
-You get a short list, not a pile of instructions dumped into every chat.
+A lighter instruction set. The bot stays nimble. Token use drops because unused skills are not sitting in the chat.
 
-- Ask in plain language. You do not need the skill's name.
-- The bot shows matching skills: what they do, where they came from, and the marketplace links.
-- Nothing is added until you say add.
-- After you add it, your bots can use that skill. They do not load every skill on every message.
-- If two skills could both do the job, the bot loads neither and names both, so you can pick.
-- The same skill found in more than one marketplace is one entry, with a link for each place. A copy from the same repo, or from a fork of that repo, is another link on that same entry. A different skill stays its own entry.
+- Ask for the job in plain language. You do not need the skill's name.
+- The bot matches on keywords and picks up one skill.
+- If two skills both match, it picks neither and names both, so you can choose.
+- The same skill found in more than one marketplace is one entry, with a link for each place. A copy from the same repo, or a fork of that repo, is another link. A different skill stays its own entry.
+- Nothing is added to your library until you say add.
 
-Your bots keep their own rules. A found skill does not overwrite who the bot is.
+Your bots keep their own rules. A skill does not overwrite who the bot is.
 
 ## Try it
 
 1. Copy this folder to `~/.cursor/plugins/local/skill-index`.
 2. Reload the window.
-3. Ask a bot: "Is there a skill for writing a short release note?"
-4. It should find one match and use it.
-5. Then ask, in one message, to check a class deck and a pull request. Two skills fit. It should name both and use neither.
+3. Ask: "Write a short release note."
+4. One skill matches. The bot uses that one.
+5. Then ask, in one message, to check a class deck and a pull request. Two skills fit. It names both and uses neither.
 
-The starter includes three example skills so you can try this with nothing else connected.
+## Why the big skill repos took off
 
-## Add a skill you found
+Checked 8 Sep 2026, from each repo's GitHub page.
 
-When the bot shows a skill from a marketplace, say add. It goes into your local library. Show the row first. Skip anything whose license you have not confirmed.
+- [obra/superpowers](https://github.com/obra/superpowers) — 283,298 stars. The first line is a promise you can repeat. Then a short story of what happens in a real session. Then one install step.
+- [anthropics/skills](https://github.com/anthropics/skills) — 175,234 stars. The official version of "load the name, not the whole file." People star the idea because they can see the skills, not a spec.
+- [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) — 74,692 stars. A list you can scan in ten seconds.
 
-If that skill is already in your library from the same repo, or from a fork of that repo, you get another marketplace link. You do not get a second copy of the same skill.
+What we copy: a first line a person feels, a try-it path, and a page you can understand without knowing the method.
 
-## What this is not
-
-This is not a dump of other people's skills. It does not put their full instructions into your bots.
-
-It is also not listed on the official Cursor marketplace. Install it from this repo.
+What we do not copy: Superpowers tells the agent to load a skill if there is even a small chance it applies. That is how instructions get bloated again. Here, two matches means load neither.
 
 ## License
 

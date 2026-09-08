@@ -1,8 +1,8 @@
 {
   "name": "skill-index",
   "version": "0.1.0",
-  "description": "A skill library for Grok Bot. Ask a bot what you want done. It looks through the skill marketplaces you connected and shows what fits. You add the ones you want. Your bots then use one skill at a time, not every skill on every message.",
+  "description": "Your bot's instructions are full. skill-index keeps them short. A skill is picked up only when the request matches it, so unused jobs stop burning tokens.",
   "author": "SathiaAI",
   "license": "MIT",
-  "keywords": ["skills", "library", "grok", "marketplace"]
+  "keywords": ["skills", "tokens", "grok", "marketplace"]
 }
