@@ -1,8 +1,8 @@
 {
   "name": "skill-index",
   "version": "0.1.0",
-  "description": "Your bot's instructions are full. skill-index keeps them short. A skill is picked up only when the request matches it, so unused jobs stop burning tokens.",
+  "description": "A skill library for Grok Bot. Ask in plain English. The bot picks up one skill. Shorter instructions, fewer tokens.",
   "author": "SathiaAI",
   "license": "MIT",
-  "keywords": ["skills", "tokens", "grok", "marketplace"]
+  "keywords": ["Grok Bot", "skill library", "plain English", "one skill at a time", "fewer tokens"]
 }

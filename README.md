@@ -1,36 +1,82 @@
-# skill-index
+<h1 align="center">skill-index</h1>
 
-Your bot's instructions are full. Every extra job you paste in is charged on every message, even when that job is not the one you asked for.
+<p align="center">
+  <img src="logo.png" alt="skill-index" width="280" />
+</p>
 
-skill-index keeps the instructions short. A skill is picked up only when the words in the request match it. The bot stays light. You use fewer tokens.
+<p align="center">
+  <img src="https://img.shields.io/badge/For-Grok%20Bot-111111?style=flat-square" alt="For Grok Bot" />
+  <img src="https://img.shields.io/badge/Skill%20library-ask%20in%20plain%20English-111111?style=flat-square" alt="Skill library" />
+  <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" alt="License: MIT" />
+</p>
 
-![skill-index](logo.png)
+<p align="center">
+  <img src="https://img.shields.io/badge/One%20skill%20at%20a%20time-111111?style=for-the-badge" alt="One skill at a time" />
+  <img src="https://img.shields.io/badge/Shorter%20bot%20instructions-111111?style=for-the-badge" alt="Shorter bot instructions" />
+  <img src="https://img.shields.io/badge/Fewer%20tokens-111111?style=for-the-badge" alt="Fewer tokens" />
+</p>
 
-## The problem
+<p align="center">
+  A skill library for <b>Grok Bot</b>. Ask for the job in plain English. The bot picks up one skill. Your bot instructions stay short.
+</p>
 
-You can only add so much to a bot's instructions. After a while they are bloated with jobs that are not needed right now. That extra text burns tokens, and the bot gets slower to the point. It grabs a leftover instruction and does the wrong thing.
+## Contents
 
-Anthropic describes the same fix for Claude: keep only the skill's name in view, and load the full instructions when the task needs them. [Their write-up](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills).
+- [Use it in the real world](#use-it-in-the-real-world)
+- [Install](#install)
+- [Add it to your Grok bots](#add-it-to-your-grok-bots)
+- [What's in this plugin](#whats-in-this-plugin)
+- [What are skills](#what-are-skills)
+- [License](#license)
 
-## What you get
+## Use it in the real world
 
-A lighter instruction set. The bot stays nimble. Token use drops because unused skills are not sitting in the chat.
+You do not paste every job into the bot. You ask for the work.
 
-- Ask for the job in plain language. You do not need the skill's name.
-- The bot matches on keywords and picks up one skill.
-- If two skills both match, it picks neither and names both, so you can choose.
-- The same skill found in more than one marketplace is one entry, with a link for each place. A copy from the same repo, or a fork of that repo, is another link. A different skill stays its own entry.
-- Nothing is added to your library until you say add.
+| You say | What happens |
+| --- | --- |
+| "Write a short release note." | One skill matches. The bot uses that one. |
+| "Check this class deck and this pull request." | Two skills fit. The bot names both and uses neither, so you can pick. |
+| "Is there a skill for organizing invoices?" | The bot looks through the skill marketplaces you connected and shows matches. Nothing is added until you say add. |
 
-Your bots keep their own rules. A skill does not overwrite who the bot is.
+The same skill found in more than one marketplace is one entry, with a link for each place. A copy from the same repo, or a fork of that repo, is another link. A different skill stays its own entry.
 
-## Try it
+## Install
 
 1. Copy this folder to `~/.cursor/plugins/local/skill-index`.
 2. Reload the window.
-3. Ask: "Write a short release note."
-4. One skill matches. The bot uses that one.
-5. Then ask, in one message, to check a class deck and a pull request. Two skills fit. It names both and uses neither.
+3. Ask a Grok bot: "Write a short release note."
+
+The plugin includes three example skills so you can try this before you connect a marketplace.
+
+## Add it to your Grok bots
+
+Your bots do not need a long instruction file for every job.
+
+1. Install the plugin (above).
+2. In the bot you want to use it, keep a short line: before a multi-step job, check the skill index and load at most one skill.
+3. Ask that bot for the job. It matches keywords and picks up one skill.
+4. To grow the library, ask: "Is there a skill for this?" The bot shows what it found. Say add. That skill is then available to your bots.
+
+A skill does not overwrite who the bot is. The bot's own rules still win.
+
+## What's in this plugin
+
+| Piece | What it is for |
+| --- | --- |
+| [Find a skill](skills/find-skill/SKILL.md) | You do not know the name. The bot looks and shows matches. |
+| [Skill index](skills/skill-index/SKILL.md) | How a bot picks one skill, or none. |
+| [Import a skill](skills/import-agent-skill/SKILL.md) | Adds a skill you approved into your local library. |
+| [Always-on line](rules/skill-index.mdc) | The short rule the bot keeps. Unused skills stay out of the chat. |
+| [Starter skills](starters/file-index/index.md) | Three examples: release note, class deck check, pull request check. |
+
+## What are skills
+
+A skill is a saved way to do one job. It lives in its own file, not in the bot's standing instructions.
+
+The bot sees a short label: the name, and when to use it. The full instructions load only when that job is the one you asked for. That is why the bot stays light, and why unused jobs stop burning tokens.
+
+This plugin is the library and the lookup. It is not a dump of other people's skills. You choose what gets added.
 
 ## License
 
