@@ -1,8 +1,8 @@
 {
   "name": "skill-index",
   "version": "0.1.0",
-  "description": "Thin skill index for agents. Standing prompt stays short. Full instructions, edge-case vetoes, and lessons load only after a real match. Imports Claude and Codex SKILL.md files into the same index.",
+  "description": "A skill library for Grok Bot and other agents. Ask a bot when you do not know a skill name. The plugin looks through the marketplaces you connected and shows matching skills. You add the ones you want. The standing prompt stays short. A full skill loads only when it is the only match.",
   "author": "SathiaAI",
   "license": "MIT",
-  "keywords": ["skills", "retrieval", "agent-skills", "claude", "codex"]
+  "keywords": ["skills", "retrieval", "agent-skills", "claude", "codex", "marketplace", "grok"]
 }

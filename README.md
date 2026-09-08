@@ -19,7 +19,9 @@ This plugin does the opposite. The standing prompt stays short. A full skill loa
 - A way to point at your own store: files, Notion, Airtable, Coda, or a sheet.
 - An importer for Claude and Codex `SKILL.md` files. It maps a file to one index row. It does not paste the skill into the profile.
 
-This is a method, not a skill library. Other people's skill bodies, secrets, and bot identity stay with you.
+This is a method, and a library you choose. The plugin does not dump every marketplace skill into the bot. It finds skills you did not know about, you add the ones you want, and the local database is what your bots can load later.
+
+Other people's skill bodies, secrets, and bot identity stay out of the profile.
 
 ## Try it in 60 seconds
 
@@ -32,6 +34,16 @@ This repo ships a file starter with three fixture rows. No Notion required.
 5. Ask, in one turn, to check a class deck and a fail-closed pull-request diff. Two rows match (`deck-text-check` and `pr-text-check`). The agent should load neither and name both.
 
 If the store is down, use the local thin cache: name, purpose, keywords, and negatives only. Do not guess a body.
+
+## Ask when you do not know the name
+
+You do not need to know a skill exists. Ask a bot. The bot asks this plugin. The plugin looks through the marketplaces you connected and comes back with matching skills. It shows name, purpose, source repo, and marketplace links. It does not load the full instructions yet.
+
+You then add the ones you want to the local database. That add is what the other bots can load later. Nothing lands until you say add.
+
+If the same skill is already in the database from the same repo, or from a fork of that repo, the add is another marketplace link on that one entry. A different skill stays its own entry. A license you have not confirmed stays out.
+
+This is the skill library for Grok Bot, and for any agent that uses the plugin. Ask in plain language. Get a short list. Keep the standing prompt short.
 
 ## One listing, many locations
 
@@ -58,7 +70,8 @@ Locks in the standing prompt always win over a retrieved skill.
 
 - `rules/skill-index.mdc` is the short always-on line.
 - `skills/skill-index` is the load order.
-- `skills/import-agent-skill` maps a Claude or Codex `SKILL.md` into one index row. Show the row before it lands. Skip secrets and any license you have not confirmed.
+- `skills/find-skill` is how a bot finds skills you did not name. It returns listings. It does not add them until you say so.
+- `skills/import-agent-skill` maps a Claude or Codex `SKILL.md`, or a marketplace listing you approved, into one index row. Show the row before it lands. Skip secrets and any license you have not confirmed.
 - `starters/file-index` is three fixture rows so the method runs with no Notion.
 - `EVAL.md` is how a hit, a miss, a wrong load, and a fake done are scored.
 

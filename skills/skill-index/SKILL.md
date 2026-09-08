@@ -58,3 +58,7 @@ Same fields, any store: files, Notion, Airtable, Coda, a sheet, or a marketplace
 ## What never goes in the index
 
 Standing locks, secrets, and another bot's private instructions.
+
+## Find, then add
+
+If the user does not know a skill name, do not guess a body. Use the find-skill path. Look through the marketplaces they connected. Return listings only. Add to the local database only after they say add. Same repo, or a fork of that repo, is another link on the one listing.
