@@ -1,5 +1,5 @@
 {
-  "note": "Default places the plugin may look. A user can add more. This file is the list, not the skills.",
+  "note": "Default places the plugin may search. A user can add more. Search results are not written to the local SQLite library. Only a skill the user adds is saved.",
   "marketplaces": [
     {
       "name": "SkillsMP",

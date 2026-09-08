@@ -47,7 +47,11 @@ The same skill found in more than one marketplace is one entry, with a link for 
 2. Reload the window.
 3. Ask a Grok bot: "Write a short release note."
 
-The plugin includes three example skills so you can try this before you connect a marketplace.
+The plugin ships with an empty SQLite library and a default list of marketplaces to search. Search results are shown to you. They are not saved.
+
+Only a skill you add is written to that library. Connecting a marketplace does not fill the database.
+
+You can add other marketplace links for search. Those extra links work the same way. Search only. Nothing is saved until you add a skill.
 
 ## Add it to your Grok bots
 
