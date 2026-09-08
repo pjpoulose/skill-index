@@ -1,87 +1,45 @@
 # skill-index
 
-Your agent stops loading the wrong skill.
+A skill library for Grok Bot.
 
-A closer keyword does not cancel a second match. If two skills still fit, this loads neither and names both.
+You do not have to know the skill name. Ask a bot what you want done. The plugin looks through the skill marketplaces you connected and shows you what fits. You add the ones you want. After that, your bots can use them.
 
 ![skill-index](logo.png)
 
-Most agents with a pile of skills do one of two bad things. They paste every skill into the standing prompt, so the prompt gets long, expensive, and confused. Or they grab the nearest keyword and run the wrong procedure, then call the job done.
-
-This plugin does the opposite. The standing prompt stays short. A full skill loads only when it is the only match. If the match is unclear, nothing loads. The bot's own locks still win.
-
 ## What you get
 
-- One skill, or none. Never a silent wrong load.
-- A named collision when two skills still match, so you can pick.
-- Done only when that skill's own success check can be scored from this turn. Loaded but unscored is not a hit.
-- Your locks stay in the bot profile. This index never overwrites who the bot is.
-- A way to point at your own store: files, Notion, Airtable, Coda, or a sheet.
-- An importer for Claude and Codex `SKILL.md` files. It maps a file to one index row. It does not paste the skill into the profile.
+You get a short list, not a pile of instructions dumped into every chat.
 
-This is a method, and a library you choose. The plugin does not dump every marketplace skill into the bot. It finds skills you did not know about, you add the ones you want, and the local database is what your bots can load later.
+- Ask in plain language. You do not need the skill's name.
+- The bot shows matching skills: what they do, where they came from, and the marketplace links.
+- Nothing is added until you say add.
+- After you add it, your bots can use that skill. They do not load every skill on every message.
+- If two skills could both do the job, the bot loads neither and names both, so you can pick.
+- The same skill found in more than one marketplace is one entry, with a link for each place. A copy from the same repo, or from a fork of that repo, is another link on that same entry. A different skill stays its own entry.
 
-Other people's skill bodies, secrets, and bot identity stay out of the profile.
+Your bots keep their own rules. A found skill does not overwrite who the bot is.
 
-## Try it in 60 seconds
-
-This repo ships a file starter with three fixture rows. No Notion required.
+## Try it
 
 1. Copy this folder to `~/.cursor/plugins/local/skill-index`.
-2. Reload the window so Cursor picks up the always-on rule in `rules/skill-index.mdc`.
-3. Point the index at `starters/file-index`. Read `index.md` only. Do not load every body.
-4. Ask for a short release note. One row matches (`release-note`). One body should load.
-5. Ask, in one turn, to check a class deck and a fail-closed pull-request diff. Two rows match (`deck-text-check` and `pr-text-check`). The agent should load neither and name both.
+2. Reload the window.
+3. Ask a bot: "Is there a skill for writing a short release note?"
+4. It should find one match and use it.
+5. Then ask, in one message, to check a class deck and a pull request. Two skills fit. It should name both and use neither.
 
-If the store is down, use the local thin cache: name, purpose, keywords, and negatives only. Do not guess a body.
+The starter includes three example skills so you can try this with nothing else connected.
 
-## Ask when you do not know the name
+## Add a skill you found
 
-You do not need to know a skill exists. Ask a bot. The bot asks this plugin. The plugin looks through the marketplaces you connected and comes back with matching skills. It shows name, purpose, source repo, and marketplace links. It does not load the full instructions yet.
+When the bot shows a skill from a marketplace, say add. It goes into your local library. Show the row first. Skip anything whose license you have not confirmed.
 
-You then add the ones you want to the local database. That add is what the other bots can load later. Nothing lands until you say add.
+If that skill is already in your library from the same repo, or from a fork of that repo, you get another marketplace link. You do not get a second copy of the same skill.
 
-If the same skill is already in the database from the same repo, or from a fork of that repo, the add is another marketplace link on that one entry. A different skill stays its own entry. A license you have not confirmed stays out.
+## What this is not
 
-This is the skill library for Grok Bot, and for any agent that uses the plugin. Ask in plain language. Get a short list. Keep the standing prompt short.
+This is not a dump of other people's skills. It does not put their full instructions into your bots.
 
-## One listing, many locations
-
-The plugin database has one listing per skill. A listing is the thing you match: name, purpose, keywords, when not to use it, and the success check.
-
-If the same skill shows up in another marketplace or folder, do not add a second listing. Index that place as another location on the listing already there. A location is a store plus a path or URL, a license, and when it was last checked.
-
-Same skill means it is tied to the same repo, or it is a fork of that repo. Same name is not enough. Overlapping purpose is not enough. Two different listings that both match the turn still collide: load neither and name both.
-
-When one listing matches, load one body from one location. Prefer a confirmed license, then a local copy. Do not load every location.
-
-## The rule
-
-1. Match purpose and keywords.
-2. Drop negatives and edge-case vetoes.
-3. If two skills still match, load neither and name both. A closer keyword does not cancel a second match.
-4. Load one body, matching edge cases, and only related lessons.
-5. Score the success line before calling the job done. If it cannot be scored from this turn, the score is not a hit.
-6. If the store is down, use the local thin cache. Do not guess a body.
-
-Locks in the standing prompt always win over a retrieved skill.
-
-## What is in this repo
-
-- `rules/skill-index.mdc` is the short always-on line.
-- `skills/skill-index` is the load order.
-- `skills/find-skill` is how a bot finds skills you did not name. It returns listings. It does not add them until you say so.
-- `skills/import-agent-skill` maps a Claude or Codex `SKILL.md`, or a marketplace listing you approved, into one index row. Show the row before it lands. Skip secrets and any license you have not confirmed.
-- `starters/file-index` is three fixture rows so the method runs with no Notion.
-- `EVAL.md` is how a hit, a miss, a wrong load, and a fake done are scored.
-
-## Stores
-
-Files first if you have no preference. Notion, Airtable, or Coda if that is what you already edit. Keep a small local copy of name, purpose, keywords, and negatives. Do not query the store on every message.
-
-## Not included
-
-This is not a dump of other people's skills. It is not an official listing on the Cursor marketplace at cursor.com/marketplace. Install it from this repo, as above.
+It is also not listed on the official Cursor marketplace. Install it from this repo.
 
 ## License
 

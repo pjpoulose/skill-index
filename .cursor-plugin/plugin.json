@@ -1,8 +1,8 @@
 {
   "name": "skill-index",
   "version": "0.1.0",
-  "description": "A skill library for Grok Bot and other agents. Ask a bot when you do not know a skill name. The plugin looks through the marketplaces you connected and shows matching skills. You add the ones you want. The standing prompt stays short. A full skill loads only when it is the only match.",
+  "description": "A skill library for Grok Bot. Ask a bot what you want done. It looks through the skill marketplaces you connected and shows what fits. You add the ones you want. Your bots then use one skill at a time, not every skill on every message.",
   "author": "SathiaAI",
   "license": "MIT",
-  "keywords": ["skills", "retrieval", "agent-skills", "claude", "codex", "marketplace", "grok"]
+  "keywords": ["skills", "library", "grok", "marketplace"]
 }
