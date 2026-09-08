@@ -32,18 +32,6 @@ Your bots keep their own rules. A skill does not overwrite who the bot is.
 4. One skill matches. The bot uses that one.
 5. Then ask, in one message, to check a class deck and a pull request. Two skills fit. It names both and uses neither.
 
-## Why the big skill repos took off
-
-Checked 8 Sep 2026, from each repo's GitHub page.
-
-- [obra/superpowers](https://github.com/obra/superpowers) — 283,298 stars. The first line is a promise you can repeat. Then a short story of what happens in a real session. Then one install step.
-- [anthropics/skills](https://github.com/anthropics/skills) — 175,234 stars. The official version of "load the name, not the whole file." People star the idea because they can see the skills, not a spec.
-- [ComposioHQ/awesome-claude-skills](https://github.com/ComposioHQ/awesome-claude-skills) — 74,692 stars. A list you can scan in ten seconds.
-
-What we copy: a first line a person feels, a try-it path, and a page you can understand without knowing the method.
-
-What we do not copy: Superpowers tells the agent to load a skill if there is even a small chance it applies. That is how instructions get bloated again. Here, two matches means load neither.
-
 ## License
 
 MIT. Author: SathiaAI.
