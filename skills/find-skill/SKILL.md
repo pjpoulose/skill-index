@@ -1,26 +1,34 @@
 ---
 name: find-skill
 description: >-
-  Use when the user does not know if a skill exists, asks what skill can do a
-  job, or wants the plugin to look through connected marketplaces. Show
-  matches. Do not write them to the local SQLite library until the user says add.
+  Use when a needed skill is not in the local library, or when the user names a
+  site to search. Show matches. Ask before adding a skill or a search location.
 ---
 
 # Find a skill
 
-The user does not need to know the skill name. They ask a bot. The bot uses this plugin. The plugin searches the marketplaces on the default list, plus any the user added, and shows matching skills.
+The user does not need to ask for a search. If the job needs a skill and the local library has no match, search. If the library has a match, do not use this path. Use the skill.
 
-## Do
+## Default search
 
-1. Search the marketplaces. Read listings only: name, purpose, keywords, source repo, marketplace URL. Do not load every body.
-2. Show a short list. If the same skill appears on more than one marketplace, or on a fork of the same repo, show it once with every link.
-3. Stop. Do not write the search results to SQLite.
+The default list is `marketplaces.json`. It already has six places. Also search any location the user has added. The user does not name a marketplace for this. Use each source's API. Do not scrape. If a source has no public search API, skip it and say so.
+
+Read listings only: name, purpose, source repo, marketplace URL. Do not load every body.
+
+Show a short list. If the same skill appears on more than one marketplace, or on a fork of the same repo, show it once with every link. Same name from a different repo that is not a fork is its own line.
+
+Then ask if one can be added to the library. Stop. Do not write the search results until the user says add.
+
+## Named site
+
+If the user asks to search a certain site, search that site the same way. Then ask if that location should be added to the default search list. Add it only if they say yes. A new search location does not fill the library.
 
 ## Do not
 
-- Save a match because it was found. Connecting a marketplace does not fill the library.
+- Save a match because it was found.
+- Search the marketplaces when the library already has the one skill the job needs.
 - Paste a body into a bot profile.
-- Search on an ordinary message. This runs when the user asks what is available.
+- Guess a body if a marketplace is down. Say which store you could not read.
 
 ## After they say add
 

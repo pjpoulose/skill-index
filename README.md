@@ -1,4 +1,4 @@
-﻿<h1 align="center">skill-index</h1>
+<h1 align="center">skill-index</h1>
 
 <p align="center">
   <img src="logo.png" alt="skill-index" width="280" />
@@ -59,8 +59,9 @@ Your bots do not need a long instruction file for every job.
 
 1. Install the plugin (above).
 2. In the bot you want to use it, keep a short line: before a multi-step job, check the skill index and load at most one skill.
-3. Ask that bot for the job. It matches keywords and picks up one skill.
-4. To grow the library, ask: "Is there a skill for this?" The bot shows what it found. Say add. That skill is then available to your bots.
+3. Ask that bot for the job. If a saved skill matches, it uses that skill. You do not need to ask.
+4. If the library has no match, the bot searches the six default marketplaces and asks if one can be added. Say add. That skill is then available.
+5. You can also name a site to search. The bot searches it, then asks if that site should join the default search list.
 
 A skill does not overwrite who the bot is. The bot's own rules still win.
 
@@ -68,14 +69,12 @@ A skill does not overwrite who the bot is. The bot's own rules still win.
 
 | Piece | What it is for |
 | --- | --- |
-| [Find a skill](skills/find-skill/SKILL.md) | You do not know the name. The bot looks and shows matches. |
+| [Find a skill](skills/find-skill/SKILL.md) | Library miss, or a site you name. Shows matches and asks before adding. |
 | [Skill index](skills/skill-index/SKILL.md) | How a bot picks one skill, or none. |
 | [Import a skill](skills/import-agent-skill/SKILL.md) | Adds a skill you approved into your local library. |
 | [Always-on line](rules/skill-index.mdc) | The short rule the bot keeps. Unused skills stay out of the chat. |
 | [Starter skills](starters/file-index/index.md) | Three examples: release note, class deck check, pull request check. |
 | [Marketplaces](marketplaces.json) | Six places the plugin can look. You can add your own. |
-| [Library schema](schema.sql) | Creates the empty SQLite tables. |
-| [Library](library.sqlite) | Empty local library. Search does not write here. |
 
 ## What are skills
 

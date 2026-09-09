@@ -59,6 +59,10 @@ Same fields, any store: files, Notion, Airtable, Coda, a sheet, or a marketplace
 
 Standing locks, secrets, and another bot's private instructions.
 
-## Find, then add
+## Three flows
 
-If the user does not know a skill name, do not guess a body. Use the find-skill path. Look through the marketplaces they connected. Return listings only. Add to the local database only after they say add. Same repo, or a fork of that repo, is another link on the one listing.
+1. In the library. If one listing matches the job, use it. The user does not need to ask. Do not search marketplaces.
+2. Not in the library. Search the default list in marketplaces.json, plus any location the user added. Use each source's API. Do not scrape. Show the relevant skills and ask if one can be added. Do not write until they say add.
+3. Named site. If the user names a site to search, search that site. Then ask if that location should be added to the default search list. Add it only if they say yes. A new search location does not fill the library.
+
+Same repo, or a fork of that repo, is another link on the one listing. Do not guess a body.
